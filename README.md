@@ -1,9 +1,12 @@
-# React Starter Pack
+Для запуска приложения перейдите по ссылке:
 
-To use this template click `Use this template`
+[DEMO LINK](https://Oleksandr-Leshchenko.github.io/react_movies_tt/)
 
-### Available Scripts
+*Description*
 
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+В данном проекте реализована загрузка данных с сервера с последующим отображением их на странице и возможностью с ними взаимодействовать следующим образом:
+Добавить фильм через форму, в которой нужно вести информацию, указанную в плейсхолдерах. Каждая строка является обязательной, а название фильма не должно повторяться.
+Найти фильм по названию или по актерскому составу
+Показать детальную информацию по фильму
+Удалить фильм
+Отсортировать по альфавиту
