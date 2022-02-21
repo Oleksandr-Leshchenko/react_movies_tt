@@ -1,3 +1,158 @@
-.starter {
-  font-size: 18px;
+.moviesList {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+
+  width: 100%;
+
+  &__item {
+    width: 100%;
+    border: 2px solid teal;
+    border-radius: 10px;
+    padding-left: 10px;
+
+    &-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__extras {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  height: 400px;
+  width: 200px;
+
+  &__button {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: #00acdc;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #00ccee;
+    }
+  }
+
+  &__warning {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(248, 140, 140);
+    border: 2px solid rgb(234, 70, 70);
+    border-radius: 2px;
+  }
+}
+
+.searchBar {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  line-height: 30px;
+
+  &-warning {
+    border-color: red;
+  }
+}
+
+.wrapper {
+  width: 400px;
+}
+
+.button {
+  background-color: rgb(110, 245, 89);
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+
+  width: max-content;
+  max-width: 100px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(0, 245, 89);
+  }
+
+  &__sort {
+    width: 100px;
+  }
+}
+
+$modal_window_height: 100px;
+$modal_window_width: 400px;
+
+.modal_window {
+  position: absolute;
+  height: $modal_window_height;
+  width: $modal_window_width;
+  border: 1px solid red;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+
+  top: calc(50vh - #{$modal_window_height / 2});
+
+  left: calc(50vw - #{$modal_window_width / 2});
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+
+    %button {
+      border: none;
+      border-radius: 5px;
+
+      padding: 5px;
+    }
+
+    &-delete {
+      @extend %button;
+      background-color: red;
+    }
+
+    &-close {
+      @extend %button;
+      background-color: rgb(117, 117, 245);
+    }
+  }
+}
+
+.page-button {
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 2px;
+
+  &:focus {
+    background-color: teal;
+  }
 }
