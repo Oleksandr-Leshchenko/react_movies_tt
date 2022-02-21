@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable prefer-destructuring */
 import {
-  FETCH_MOVIES_SUCCESS,
+  FETCH_MOVIES,
   FETCH_MOVIES_ERROR,
   ADD_MOVIE,
   REMOVE_MOVIE,
@@ -11,8 +12,8 @@ import {
   SET_SELECTED_ID,
 } from '.';
 
-export const fetchMoviesSuccessAction = movies => ({
-  type: FETCH_MOVIES_SUCCESS,
+export const fetchMoviesAction = movies => ({
+  type: FETCH_MOVIES,
   payload: movies,
 });
 
@@ -81,14 +82,22 @@ const adjustMovies = (movies) => {
   return moviesList;
 };
 
-export const fetchMovies = () => async(dispatch) => {
+export const fetchMovies = fileContent => async(dispatch) => {
   // eslint-disable-next-line max-len
   const url = 'https://gist.githubusercontent.com/k0stik/3028d42973544dd61c3b4ad863378cad/raw/cca50e86dd745c158491adf35bb212d322d58260/movies.txt';
-  const response = await (await fetch(url)).text();
-  const movies = adjustMovies(response);
+
+  let response;
+
+  if (fileContent) {
+    response = await fileContent.files[0].text();
+  } else {
+    response = await (await fetch(url)).text();
+  }
+
+  const movies = adjustMovies(response.trim());
 
   try {
-    dispatch(fetchMoviesSuccessAction(movies));
+    dispatch(fetchMoviesAction(movies));
   } catch {
     dispatch(fetchMoviesErrorAction('Failed to fetch movies'));
   }

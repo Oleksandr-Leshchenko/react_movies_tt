@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import classnames from 'classnames';
@@ -50,30 +51,40 @@ export const MovieForm = () => {
         placeholder="Title"
         value={Title}
         onChange={event => setMovieTitleAction(event.target.value)}
+        pattern=".*(?<!\s)$"
         required
       />
       <input
-        type="text"
+        type="number"
         className="input"
         placeholder="ReleaseYear"
         value={ReleaseYear}
         onChange={event => setMovieReleaseYearAction(event.target.value)}
+        min="1850"
+        max="2022"
         required
       />
-      <input
-        type="text"
-        className="input"
-        placeholder="Format"
+
+      <select
+        className="form__button"
         value={Format}
-        onChange={event => setMovieFormatAction(event.target.value)}
-        required
-      />
+        onChange={(event) => {
+          setMovieFormatAction(event.target.value);
+          console.log(event.target.value);
+        }}
+      >
+        <option value="VHS">VHS</option>
+        <option value="DVD">DVD</option>
+        <option value="Blu-Ray">Blu-Ray</option>
+      </select>
+
       <input
         type="text"
         className="input"
         placeholder="Stars"
         value={Stars}
         onChange={event => setMovieStarsAction(event.target.value)}
+        pattern="[a-zA-Z,-]{1,}"
         required
       />
       <button

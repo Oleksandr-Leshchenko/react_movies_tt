@@ -1,9 +1,11 @@
 export const SET_TITLE_QUERY = 'SET_TITLE_QUERY';
 export const SET_STARS_QUERY = 'SET_STARS_QUERY';
+export const SET_FILE_PATH = 'SET_FILE_PATH';
 
 const initialState = {
   titleQuery: '',
   starsQuery: '',
+  filePath: '',
 };
 
 export const queryReducer = (state = initialState, action) => {
@@ -18,6 +20,12 @@ export const queryReducer = (state = initialState, action) => {
       return {
         ...state,
         starsQuery: action.payload,
+      };
+
+    case SET_FILE_PATH:
+      return {
+        ...state,
+        filePath: action.payload,
       };
 
     default:

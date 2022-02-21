@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable implicit-arrow-linebreak */
-export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS';
+export const FETCH_MOVIES = 'FETCH_MOVIES';
 export const FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR';
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const REMOVE_MOVIE = 'REMOVE_MOVIE';
@@ -15,7 +15,7 @@ const initialState = {
   id: 0,
   Title: '',
   'Release Year': '',
-  Format: '',
+  Format: 'VHS',
   Stars: '',
   selectedId: 0,
   errorMessage: '',
@@ -23,7 +23,7 @@ const initialState = {
 
 export const movieReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_MOVIES_SUCCESS:
+    case FETCH_MOVIES:
       return {
         ...state,
         movies: action.payload,
